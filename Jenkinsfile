@@ -28,8 +28,13 @@ pipeline {
     post {
         always {
           junit 'test-results.xml'
+          echo 'Cleaning up workspace'
+          deleteDir()
         }
         success {
+            mail to: 'thomaslilley1@live.co.uk',
+                 subject: "Success Pipeline: ${currentBuild.fullDisplayName}",
+                 body: "Yay for ${env.BUILD_URL}"
             echo 'This build was successful'
         }
         failure {
