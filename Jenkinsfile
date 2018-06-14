@@ -26,6 +26,9 @@ pipeline {
         }
     }
     post {
+        always {
+          junit 'test-results.xml'
+        }
         success {
             echo 'This build was successful'
         }
