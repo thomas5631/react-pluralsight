@@ -32,9 +32,6 @@ pipeline {
           deleteDir()
         }
         success {
-            mail to: 'thomaslilley1@live.co.uk',
-                 subject: "Success Pipeline: ${currentBuild.fullDisplayName}",
-                 body: "Yay for ${env.BUILD_URL}"
             echo 'This build was successful'
         }
         failure {
