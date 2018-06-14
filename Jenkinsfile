@@ -16,6 +16,14 @@ pipeline {
             sh 'npm run lint'
           }
         }
+        stage('getEnv') {
+          environment {
+            THIS_ENV_VAR = 'this_is_an_env_var'
+          }
+          steps {
+            sh 'echo $THIS_ENV_VAR'
+          }
+        }
     }
     post {
         success {
