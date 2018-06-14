@@ -1,6 +1,11 @@
 pipeline {
     agent { docker { image 'node:9.11.2' } }
     stages {
+        stage('install') {
+          steps {
+            sh 'npm install'
+          }
+        }
         stage('test') {
           steps {
             sh 'npm run test'
